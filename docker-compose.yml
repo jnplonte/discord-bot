@@ -2,12 +2,12 @@ version: '3.2'
 
 services:
   node:
-    image: nodeapi
+    image: discord
     restart: always
     build:
       context: ./
       dockerfile: ./node.docker
-    container_name: nodeapi
+    container_name: discord
     ports:
       - '8383:8383'
     volumes:

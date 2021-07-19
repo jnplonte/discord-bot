@@ -10,13 +10,12 @@
 
 - nodejs: [https://nodejs.org/](https://nodejs.org/en/)
 - expressjs: [https://expressjs.com/](https://expressjs.com/)
-- mysql: [https://mysql.com/](https://mysql.com/)
 - docker: [https://www.docker.com/](https://www.docker.com/)
 
 ## Demo
 
-- api: [http://nodeapi.jnpl.me/](http://nodeapi.jnpl.me/)
-- api documentation: [http://nodeapi.jnpl.me/documentation/](http://nodeapi.jnpl.me/documentation/)
+- api: [http://discord.jnpl.me/](http://discord.jnpl.me/)
+- api documentation: [http://discord.jnpl.me/documentation/](http://discord.jnpl.me/documentation/)
 
 ## NODE
 
@@ -28,20 +27,10 @@
 - Build typescript by running `npm run build:development`
 - Get global config by running `npm run generate:config`
 - Generate documentation by running `npm run generate:docs`
-- Install database data migraion by running `npm run migrate`
-- Install database mock data by running `npm run seed`
 
 ### How to Use
 
 - run `npm start` it will listen to http://localhost:8383 with authorization Bearer
-
-### Creating Models and Migrations
-
-- create global models `npm run create:model -- <name of the model>`
-
-### Creating Seeders
-
-- create global seeders `npm run create:seed -- seed-<name of the seeder>`
 
 ### Testing
 

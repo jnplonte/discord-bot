@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "Node Api Documentation",
 	"title": "Node Api Documentation",
-	"url": "https://www.jnpl.me/playground/nodeapi/<version>",
+	"url": "https://www.jnpl.me/playground/discord/<version>",
 	"header": {
 		"title": "GETTING STARTED",
 		"filename": "apidoc-getting-started.md"

@@ -34,7 +34,7 @@ describe('application start', () => {
 		supertest(app)
 			.get('/v1')
 			.expect('Content-Type', /json/)
-			.expect(401, function (err, res) {
+			.expect(404, function (err, res) {
 				if (err) {
 					return done(err);
 				}

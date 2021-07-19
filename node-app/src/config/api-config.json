@@ -6,13 +6,13 @@
 		"defaults": {}
 	},
 	"development": {
-		"host": "http://nodeapi.jnpl.me",
+		"host": "http://discord.jnpl.me",
 		"port": 0,
 		"endpoints": {},
 		"defaults": {}
 	},
 	"production": {
-		"host": "http://nodeapi.jnpl.me",
+		"host": "http://discord.jnpl.me",
 		"port": 0,
 		"endpoints": {},
 		"defaults": {}
