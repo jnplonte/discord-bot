@@ -1,72 +1,54 @@
 import * as express from 'express';
+import * as discord from 'discord.js';
 import * as helmet from 'helmet';
 import * as compression from 'compression';
 import * as cors from 'cors';
-import { expressCspHeader, SELF, EVAL } from 'express-csp-header';
 
-import * as coreRoutes from './routes/core-route';
+import { Helper } from './app/services/helper/helper.service';
 
 import { baseConfig } from './config';
 
-express['application']['version'] = express.Router['group'] = function (arg1, arg2) {
-	let fn, path;
-	const router = express.Router(),
-		self = this;
-	if (typeof arg2 === 'undefined') {
-		path = '/';
-		fn = arg1;
-	} else {
-		path = '/' + arg1;
-		fn = arg2;
-	}
-	fn(router);
-	self.use(path, router);
-	return router;
-};
-
-// process.env.TZ = 'Asia/Manila';
+import { Messages } from './app/messages.component';
 
 class App {
 	public express;
+	public client;
 	public cache;
 	public env = process.env.NODE_ENV || 'local';
 
 	constructor() {
 		this.express = express();
+		this.client = new discord.Client();
 		this.express.disable('x-powered-by');
 
 		this.addConfig();
-		this.implementDocumentation();
+		this.initApp();
 		this.setRoute();
 		this.setNotFound();
+
+		this.client.login(baseConfig.token);
 	}
 
 	private addConfig(): void {
 		this.express.use(helmet());
 		this.express.use(compression());
 		this.express.use(cors());
-		this.express.use(express.json());
-		this.express.use(express.urlencoded({ extended: true }));
 	}
 
-	private implementDocumentation(): void {
-		if (this.env === 'production') {
-			// do something here
-		} else {
-			this.express.use(
-				'/documentation',
-				expressCspHeader({
-					directives: {
-						'script-src': [SELF, EVAL],
-					},
-				}),
-				express.static(__dirname + '/doc')
-			);
-		}
+	private initApp(): void {
+		this.client.on('ready', () => {
+			console.log(`Logged in as ${this.client.user.tag}!`);
+
+			const helper = new Helper(baseConfig);
+			const messages = new Messages(this.client, helper);
+			messages.onMessage();
+		});
 	}
 
 	private setRoute(): void {
-		this.express = coreRoutes.setup(this.express, baseConfig);
+		this.express.all('/', (req, res) => {
+			res.send('bot is running!');
+		});
 	}
 
 	private setNotFound(): void {

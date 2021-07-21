@@ -17,11 +17,11 @@ describe('application start', () => {
 		});
 	});
 
-	it('should show the documentation page', (done) => {
+	it('should show the bot page', (done) => {
 		supertest(app)
-			.get('/documentation')
+			.get('/')
 			.expect('Content-Type', /html/)
-			.expect(301, function (err, res) {
+			.expect(200, function (err, res) {
 				if (err) {
 					return done(err);
 				}
@@ -30,16 +30,15 @@ describe('application start', () => {
 			});
 	});
 
-	it('should return Unauthorized', (done) => {
+	it('should return not found', (done) => {
 		supertest(app)
-			.get('/v1')
+			.get('/abc')
 			.expect('Content-Type', /json/)
 			.expect(404, function (err, res) {
 				if (err) {
 					return done(err);
 				}
 
-				expect(res.body.status).to.equal('failed');
 				done();
 			});
 	});

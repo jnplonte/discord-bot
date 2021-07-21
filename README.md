@@ -1,4 +1,4 @@
-# NODE API
+# DISCORD BOT
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
@@ -10,6 +10,7 @@
 
 - nodejs: [https://nodejs.org/](https://nodejs.org/en/)
 - expressjs: [https://expressjs.com/](https://expressjs.com/)
+- discordjs: [https://discord.js.org/](https://discord.js.org/)
 - docker: [https://www.docker.com/](https://www.docker.com/)
 
 ## Demo
