@@ -6,7 +6,7 @@ export const baseConfig = {
 	poweredBy: 'discord bot',
 	secretKey: 'x-node-api-key',
 	secretKeyHash: 'KuQmvnxXEjR7KXwfucgerTf6YwZV5Amz5awwxf5PFgkpGrb3Jn',
-	token: 'ODYyNjI4MTg4OTYxODk4NTU4.YObHGw.w6XicPI7r84fHQxfMH00VZcAeDQ',
+	token: '',
 
 	api: apiConfig,
 };
